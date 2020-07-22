@@ -1,0 +1,46 @@
+server:
+  port: 0
+
+# 暴露出来的服务名
+register-provider:
+  application:
+    name: demo-consumer
+
+# 订阅消费的服务名
+subscribe-provider:
+  application:
+    name: demo-provider-2
+
+spring:
+  application:
+    # Dubbo 应用名称
+    name: demo-consumer-2
+  #  main:
+  #    # Spring Boot 2.1 需要设定
+  #    allow-bean-definition-overriding: true
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+  cloud:
+    # The subscribed services in consumer side
+    subscribed-services: ${subscribe-provider.application.name}
+  protocols:
+    dubbo:
+      name: dubbo
+      port: 28802
+  registry:
+    #   The Spring Cloud Dubbo's registry extension
+    ##  the default value of dubbo-provider-services is "*", that means to subscribe all providers,
+    ##  thus it's optimized if subscriber specifies the required providers.
+    address: spring-cloud://localhost
+  #   The traditional Dubbo's registry also is supported
+  #   address: zookeeper://127.0.0.1:2181
+  consumer:
+    check: false
+

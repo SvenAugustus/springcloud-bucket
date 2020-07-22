@@ -1,0 +1,103 @@
+spring:
+  profiles:
+    #  active: nacos,provider1
+    #    active: consul,provider1
+    active: eureka,provider1
+
+  # default disable all
+  cloud:
+    nacos:
+      discovery:
+        enabled: false
+        register-enabled: false
+    zookeeper:
+      enabled: false
+    consul:
+      enabled: false
+
+eureka:
+  client:
+    enabled: false
+
+---
+spring:
+  profiles: provider1
+
+  application:
+    name: service-provider-1
+
+server:
+  port: 8081
+
+---
+spring:
+  profiles: provider2
+
+  application:
+    name: service-provider-2
+
+server:
+  port: 8082
+
+---
+spring:
+  profiles: nacos
+
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        enabled: true
+        # 服务名
+        service: ${register-provider.application.name:${spring.application.name:}}
+        register-enabled: true
+        server-addr: 127.0.0.1:8848
+
+server:
+  port: 8085
+
+---
+spring:
+  profiles: consul
+
+  cloud:
+    consul:
+      enabled: true
+      discovery:
+        # 服务名
+        service-name: ${register-provider.application.name:${spring.application.name:}}
+        datacenters:
+          - dc1
+      #        health-check-url: http://flysium-io:8081/actuator/health
+      #        health-check-url: http://flysium-io:8081/actuator/health
+      host: 127.0.0.1
+      port: 8500
+
+---
+spring:
+  profiles: eureka
+
+eureka:
+  instance:
+    # 服务名
+    virtual-host-name: ${register-provider.application.name:${spring.application.name:}}
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    #      defaultZone: http://root:root123@localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+
+---
+# 目前是与 dubbo 配合，作为注册中心
+spring:
+  profiles: zookeeper
+
+  cloud:
+    zookeeper:
+      enabled: true
+      connect-string: 127.0.0.1:2181
+      discovery:
+        enabled: true

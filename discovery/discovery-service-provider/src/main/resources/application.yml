@@ -1,0 +1,14 @@
+# 暴露出来的服务名
+register-provider:
+  application:
+    name: service-provider
+
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+feign:
+  hystrix:
+    enabled: true
+

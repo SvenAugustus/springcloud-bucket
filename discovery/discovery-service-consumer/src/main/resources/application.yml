@@ -1,0 +1,30 @@
+server:
+  port: 0
+
+# 暴露出来的服务名
+register-provider:
+  application:
+    name: service-consumer
+
+# 订阅消费的服务名
+subscribe-provider:
+  application:
+    name: service-provider
+
+spring:
+  application:
+    name: service-consumer-1
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+feign:
+  hystrix:
+    enabled: true
+
+ribbon:
+  eager-load:
+    enabled: true
+
