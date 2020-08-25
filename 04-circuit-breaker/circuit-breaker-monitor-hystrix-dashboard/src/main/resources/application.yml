@@ -1,0 +1,7 @@
+server:
+  port: 6101
+
+hystrix:
+  dashboard:
+    proxyStreamAllowList:
+      - localhost

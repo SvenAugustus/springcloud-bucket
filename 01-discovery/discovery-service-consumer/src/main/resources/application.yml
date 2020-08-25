@@ -1,0 +1,23 @@
+server:
+  port: 0
+
+# 订阅消费的服务名
+subscribe-provider.serviceId.serviceA: service-provider
+
+spring:
+  application:
+    # TODO 一般建议 spring.application.name 与暴露出来的服务名一样，避免很多细节问题， 这里修改不一样是为了验证注册中心的工作细节
+    name: service-consumer
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        # TODO 暂时屏蔽
+        enabled: false
+
+feign:
+  hystrix:
+    # TODO 暂时屏蔽
+    enabled: false
+
+

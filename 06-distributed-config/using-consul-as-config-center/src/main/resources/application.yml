@@ -1,0 +1,6 @@
+server:
+    port: 18500
+
+spring:
+    application:
+        name: consul-config-center

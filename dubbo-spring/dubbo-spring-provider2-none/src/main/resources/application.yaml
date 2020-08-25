@@ -1,15 +1,10 @@
 server:
-  port: 8800
-
-# 暴露出来的服务名
-register-provider:
-  application:
-    name: demo-provider-2
+  port: 8810
 
 spring:
   application:
     # Dubbo 应用名称, dubbo 中协议 rest使用的服务名
-    name: demo-provider-2
+    name: dubbo-spring-provider-2
   # main:
   # Spring Boot 2.1 需要设定
   #   allow-bean-definition-overriding: true
@@ -17,11 +12,13 @@ spring:
   cloud:
     loadbalancer:
       ribbon:
+        # TODO 暂时屏蔽
         enabled: false
 
 feign:
   hystrix:
-    enabled: true
+    # TODO 暂时屏蔽
+    enabled: false
 
 #management:
 #  endpoints:
@@ -36,13 +33,13 @@ dubbo:
     # dubbo 服务扫描基准包
     base-packages: xyz.flysium.cloud.service
   cloud:
-    subscribed-services: ${subscribe-provider.application.name}
+    subscribed-services: ${subscribe-provider.serviceId.serviceA}
   # 多协议
   protocols:
     dubbo:
       name: dubbo
       # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
-      port: 28801
+      port: 28810
     # none web 环境必须配置 rest 协议， web 环境不配置这个，改为配置 management.endpoints.web.exposure.include
     rest:
       name: rest
@@ -52,6 +49,6 @@ dubbo:
     # 挂载到 Spring Cloud 注册中心
     address: spring-cloud://localhost
   #   address: zookeeper://127.0.0.1:2181
-  metadata-report:
-    address: zookeeper://127.0.0.1:2181
+#  metadata-report:
+#    address: zookeeper://127.0.0.1:2181
 

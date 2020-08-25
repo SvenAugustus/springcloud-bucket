@@ -1,0 +1,73 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: routing-spring-gateway
+
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+        # http://localhost:9002/sf/  ->  https://segmentfault.com
+        - id: proxy-1
+          uri: https://segmentfault.com
+          predicates:
+            - Path=/sf
+          filters:
+          order: 1
+          metadata: { s1: "v1", s2: 2 }
+        - id: server-proxy-sample-provider
+          uri: lb://sample-provider
+          # http://localhost:9002/services/hello  -> http://localhost:9021/hello
+          #          predicates:
+          #            - Path=/services/**
+          #          filters:
+          #            - StripPrefix=1
+          # http://localhost:9002/v1/services/hello  -> http://localhost:9021/hello
+          predicates:
+            - Path=/v1/services/**
+          filters:
+            - StripPrefix=2
+#      globalcors:
+#        # CORS
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: "https://docs.spring.io"
+#            allowedMethods:
+#              - GET
+
+
+# ribbon 客户端负载均衡
+ribbon:
+  ConnectTimeout: 2000
+  ReadTimeout: 5000
+  eager-load:
+    enabled: true
+
+# hystrix，熔断器
+hystrix:
+  # com.netflix.hystrix.HystrixCommandProperties
+  command:
+    default:
+      circuitBreaker:
+        # 熔断器在整个统计时间内是否开启的阀值，默认20。
+        # 也就是在 metrics.rollingStats.timeInMilliseconds（默认10s）内至少请求20次，熔断器才发挥起作用
+        requestVolumeThreshold: 20
+
+
+# 路由端点： http://localhost:9002/actuator/gateway/routes
+# 过滤器端点： http://localhost:9002/actuator/gateway/globalfilters
+# 过滤器端点： http://localhost:9002/actuator/gateway/routefilters
+# 路由条件端点： http://localhost:9002/actuator/gateway/routepredicates
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      ##默认是never
+      show-details: ALWAYS
+      enabled: true
+

@@ -1,0 +1,20 @@
+server:
+  port: 6102
+
+spring:
+  application:
+    name: hystrix-dashboard-turbine
+
+#注册中心
+eureka:
+  client:
+    #设置服务注册中心的URL
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+turbine:
+  # 监控的 Application-ID， 而不是服务名 VIP-HOST-NAME
+  app-config: sample-hystrix-test-consumer-rt, sample-hystrix-test-consumer-fn
+  # Eureka Data center
+  cluster-name-expression: "'default'"
+

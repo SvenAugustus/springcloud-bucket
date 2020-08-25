@@ -1,0 +1,43 @@
+server:
+  port: 0
+
+# 订阅消费的服务名
+subscribe-provider.serviceId.serviceA: sample-ribbon-test-provider
+
+spring:
+  application:
+    name: sample-ribbon-test-consumer-rt
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+
+# ribbon 客户端负载均衡, 基于服务的优先级高于通用的配置项 ribbon.MaxAutoRetries
+sample-ribbon-test-provider:
+  ribbon:
+    MaxAutoRetries: 1
+
+# ribbon 客户端负载均衡
+ribbon:
+  #  org.springframework.cloud.netflix.ribbon.RibbonClientConfiguration
+  #  配置项的 Key: com.netflix.client.config.CommonClientConfigKey -> DefaultClientConfigImpl
+  ConnectTimeout: 2000
+  ReadTimeout: 5000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+  OkToRetryOnAllOperations: false
+  # RibbonEagerLoadProperties
+  eager-load:
+    enabled: true
+    clients:
+      - ${subscribe-provider.serviceId.serviceA}
+  restclient:
+    enabled: false
+  http:
+    client:
+      # 默认的请求发起是：HttpURLConnection
+      enabled: false
+  okhttp:
+    # 采用 OKHttpClient
+    enabled: true

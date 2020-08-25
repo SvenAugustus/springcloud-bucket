@@ -52,7 +52,7 @@ public class DubboConsumer2Application {
     @Lazy
     private DubboFeignRestService dubboFeignRestService;
 
-    @Value("${subscribe-provider.application.name}")
+    @Value("${subscribe-provider.serviceId.serviceA}")
     private String providerApplicationName;
 
     @Autowired

@@ -1,0 +1,71 @@
+server:
+  port: 0
+
+# 订阅消费的服务名
+subscribe-provider.serviceId.serviceA: sample-ribbon-test-provider
+
+spring:
+  application:
+    name: sample-ribbon-test-consumer-fn
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+
+# ribbon 客户端负载均衡, 基于服务的优先级高于通用的配置项 ribbon.MaxAutoRetries
+sample-ribbon-test-provider:
+  ribbon:
+    MaxAutoRetries: 1
+
+# ribbon 客户端负载均衡
+ribbon:
+  #  org.springframework.cloud.netflix.ribbon.RibbonClientConfiguration
+  #  配置项的 Key: com.netflix.client.config.CommonClientConfigKey -> DefaultClientConfigImpl
+  ConnectTimeout: 2000
+  ReadTimeout: 5000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+  OkToRetryOnAllOperations: false
+  # RibbonEagerLoadProperties
+  eager-load:
+    enabled: true
+    clients:
+      - ${subscribe-provider.serviceId.serviceA}
+  restclient:
+    enabled: false
+  http:
+    client:
+      # 默认的请求发起是：HttpURLConnection
+      enabled: false
+  okhttp:
+    # 采用 OKHttpClient
+    enabled: true
+
+# feign, 服务间调用
+feign:
+  client:
+    # 属性配置比Java代码优先级高。也可通过配置设置java代码优先级高。
+    default-to-properties: false
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 15000
+        # 4 种日志类型
+        # none:不记录任何日志，默认值
+        # basic:仅记录请求方法，url，响应状态码，执行时间。
+        # headers：在basic基础上，记录header信息
+        # full：记录请求和响应的header，body，元数据。
+        logger-level: basic
+  compression:
+    request:
+      enabled: true
+      mime-types:
+        - text/xml
+      min-request-size: 2048
+    # 设置返回值压缩后，客户端也需要调整
+    response:
+      enabled: false
+  hystrix:
+    # TODO 暂时屏蔽
+    enabled: false

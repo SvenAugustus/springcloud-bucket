@@ -1,0 +1,3 @@
+application:
+  name: app1
+  flag: true

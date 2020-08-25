@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: spring-config-center
+  cloud:
+    discovery:
+      enabled: false
+    config:
+      username: root
+      password: root123
+      server:
+        git:
+          uri: https://gitee.com/svenaugustus/spring-config-samples
+          #          username: github 登录账号
+          #          password: github 登录密码
+          # 默认是秒，因为git慢
+          timeout: 15
+          # 配置文件分支
+          default-label: master
+          # 配置文件所在根目录
+          search-paths:

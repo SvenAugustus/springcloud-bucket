@@ -1,0 +1,67 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: routing-zuul
+
+zuul:
+  # 访问需要的前缀
+  prefix: /v1
+  # 实际请求是否移除前缀
+  strip-prefix: true
+  # 表示忽略下面的值向微服务传播，如果以下配置为空表示：所有请求头都透传到后面微服务。
+  sensitive-headers:
+  # 调用后端服务时，对于query String 会使用原始编码, 默认 false
+  forceOriginalQueryStringEncoding: false
+  # 当处理传入的请求时，请求URI在与路由匹配之前被解码。 当后端请求在路由过滤器中重建时，请求URI被重新编码。 如果URI包含编码的“/”字符，这可能会导致一些意外行为。默认 true
+  decodeUrl: true
+  # 配置指定微服务的访问路径
+  routes:
+    # 访问 http://localhost:9001/v1/services/hello -> http://localhost:9021/hello
+    sample-provider:
+      path: /services/**
+      retryable: false
+    #  routes:
+    #    # 此处名字随便取
+    #    custom-zuul-name:
+    #      path: /services/**
+    #      service-id: sample-provider
+    #  ignored-services:
+    # 禁用访问 http://localhost:9001/sample-provider/hello
+#    - service-provider
+#  ignored-patterns:
+#    - /*-provider-*/**
+
+# ribbon 客户端负载均衡
+ribbon:
+  ConnectTimeout: 2000
+  ReadTimeout: 5000
+  eager-load:
+    enabled: true
+
+# hystrix，熔断器
+hystrix:
+  # com.netflix.hystrix.HystrixCommandProperties
+  command:
+    default:
+      circuitBreaker:
+        # 熔断器在整个统计时间内是否开启的阀值，默认20。
+        # 也就是在 metrics.rollingStats.timeInMilliseconds（默认10s）内至少请求20次，熔断器才发挥起作用
+        requestVolumeThreshold: 20
+
+
+# 路由端点： http://localhost:9001/actuator/routes
+# 过滤器端点： http://localhost:9001/actuator/filters
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      ##默认是never
+      show-details: ALWAYS
+      enabled: true
+    routes:
+      enabled: true

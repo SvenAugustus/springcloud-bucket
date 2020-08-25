@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: nacos-config-center
+  cloud:
+    discovery:
+      enabled: false
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        group:  DEFAULT_GROUP
+        file-extension: properties
+#        shared-configs: '[common333.properties, {data-id=common111.properties,
+#                    group=GROUP_APP1, refresh=true}, common222.properties]'
+#        extension-configs: '[{data-id=extension1.properties, refresh=true},
+#                    extension2.properties, {data-id=extension3.json}]'
+

@@ -4,11 +4,11 @@ server:
 spring:
   application:
     # Dubbo 应用名称
-    name: demo-provider-1
+    name: dubbo-spring-provider-1
 #  main:
 #    # Spring Boot 2.1 需要设定
 #    allow-bean-definition-overriding: true
-`
+
 dubbo:
   scan:
     # dubbo 服务扫描基准包

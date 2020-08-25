@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-config-1
+  cloud:
+    discovery:
+      enabled: false
+    config:
+      uri: http://root:root123@localhost:8888
+      label: master
+      profile: default
+
+server:
+  port: 18080

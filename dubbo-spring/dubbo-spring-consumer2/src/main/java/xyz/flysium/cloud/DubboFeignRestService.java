@@ -42,7 +42,7 @@ import static org.springframework.http.MediaType.*;
  * @author zeno (Sven Augustus)
  * @version 1.0
  */
-@FeignClient("${subscribe-provider.application.name}")
+@FeignClient("${subscribe-provider.serviceId.serviceA}")
 @DubboTransported(protocol = "dubbo")
 public interface DubboFeignRestService {
 

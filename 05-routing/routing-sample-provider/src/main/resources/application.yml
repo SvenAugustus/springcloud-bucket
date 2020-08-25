@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: sample-provider
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        # TODO 暂时屏蔽
+        enabled: false
+
+feign:
+  hystrix:
+    # TODO 暂时屏蔽
+    enabled: false

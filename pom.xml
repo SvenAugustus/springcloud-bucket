@@ -129,6 +129,13 @@
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
           <version>${spring-boot.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -142,10 +149,26 @@
   </build>
 
   <modules>
-    <module>config/consul-as-config-center</module>
-    <module>discovery/eureka-server</module>
-    <module>discovery/discovery-service-provider</module>
-    <module>discovery/discovery-service-consumer</module>
+    <module>01-discovery/eureka-server</module>
+    <module>01-discovery/discovery-service-provider</module>
+    <module>01-discovery/discovery-service-consumer</module>
+    <module>03-load-balancing/loadbalance-ribbon-sample-provider</module>
+    <module>03-load-balancing/loadbalance-ribbon-consumer-resttemplate</module>
+    <module>03-load-balancing/loadbalance-ribbon-consumer-feign</module>
+    <module>04-circuit-breaker/circuit-breaker-hystrix-0-start</module>
+    <module>04-circuit-breaker/circuit-breaker-hystrix-sample-provider</module>
+    <module>04-circuit-breaker/circuit-breaker-hystrix-sample-provider-b</module>
+    <module>04-circuit-breaker/circuit-breaker-hystrix-consumer-resttemplate</module>
+    <module>04-circuit-breaker/circuit-breaker-hystrix-consumer-feign</module>
+    <module>04-circuit-breaker/circuit-breaker-monitor-hystrix-dashboard</module>
+    <module>04-circuit-breaker/circuit-breaker-monitor-hystrix-dashboard-turbine</module>
+    <module>05-routing/routing-sample-provider</module>
+    <module>05-routing/routing-zuul</module>
+    <module>05-routing/routing-spring-gateway</module>
+    <module>06-distributed-config/spring-config-server</module>
+    <module>06-distributed-config/using-spring-config</module>
+    <module>06-distributed-config/using-consul-as-config-center</module>
+    <module>06-distributed-config/using-nacos-as-config-center</module>
     <module>dubbo-spring/dubbo-sample-api</module>
     <module>dubbo-spring/dubbo-simple-provider</module>
     <module>dubbo-spring/dubbo-simple-consumer</module>

@@ -1,7 +1,0 @@
-server:
-  port: 5080
-
-spring:
-  application:
-    name: consul-config-center
-

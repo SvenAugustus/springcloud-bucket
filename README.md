@@ -9,9 +9,10 @@ The bucket of [Spring Cloud](https://cloud.spring.io/spring-cloud-static/Hoxton.
 * 1、JDK8+
 * 2、Maven 3.3+
 * 3、Spring Boot 2.3.x
+* 3、Spring Cloud Hoxton.SR7
 
 #### Contract
-* Email: SvenAugustus@outlook.com (Or zeno531@yeah.net)
+* Email: SvenAugustus@outlook.com (Or zeno531@outlook.com)
 * GitHub: https://github.com/SvenAugustus
 * GitLab: https://gitlab.com/SvenAugustus
 

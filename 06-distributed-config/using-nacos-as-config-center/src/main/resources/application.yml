@@ -1,0 +1,11 @@
+server:
+    port: 18084
+
+management:
+    endpoint:
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: '*'

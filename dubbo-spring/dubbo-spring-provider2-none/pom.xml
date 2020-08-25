@@ -7,7 +7,7 @@
     <groupId>xyz.flysium.springcloud</groupId>
     <artifactId>springcloud-bucket-pom</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../../pom.xml</relativePath>
+    <relativePath>../../pom.xmlpom.xml</relativePath>
   </parent>
 
   <artifactId>dubbo-spring-provider2-none</artifactId>

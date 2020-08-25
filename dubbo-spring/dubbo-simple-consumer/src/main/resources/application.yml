@@ -4,14 +4,14 @@ server:
 spring:
   application:
     # Dubbo 应用名称
-    name: demo-consumer
+    name: dubbo-spring-consumer-1
 #  main:
 #    # Spring Boot 2.1 需要设定
 #    allow-bean-definition-overriding: true
 
 dubbo:
   cloud:
-    subscribed-services: demo-provider-1
+    subscribed-services: dubbo-spring-provider-1
   protocol:
     # dubbo 协议
     name: dubbo
