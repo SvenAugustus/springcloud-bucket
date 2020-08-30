@@ -1,0 +1,32 @@
+server:
+  port: 6010
+
+spring:
+  application:
+    name: tracing-admin-server
+  security:
+    user:
+      name: root
+      password: root123
+
+  # 邮件设置
+  mail:
+    host: smtp.yeah.net
+    username: zeno531
+    # 授权码
+    password: GTCMTKGMLBSFMGGE
+    properties:
+      mail:
+        smpt:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  boot:
+    admin:
+      notify:
+        mail:
+          # 收件邮箱
+          to: zeno531@outlook.com
+          # 发件邮箱
+          from: zeno531@yeah.net

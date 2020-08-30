@@ -80,6 +80,8 @@
     <spring-cloud-consul.version>2.2.4.RELEASE</spring-cloud-consul.version>
     <!-- REST Support -->
     <resteasy.version>3.0.19.Final</resteasy.version>
+    <!-- admin-server -->
+    <de.codecentric-spring-cloud-admin-server.version>2.3.0</de.codecentric-spring-cloud-admin-server.version>
   </properties>
 
   <dependencyManagement>
@@ -169,6 +171,10 @@
     <module>06-distributed-config/using-spring-config</module>
     <module>06-distributed-config/using-consul-as-config-center</module>
     <module>06-distributed-config/using-nacos-as-config-center</module>
+    <module>07-tracing/tracing-sample-service-a</module>
+    <module>07-tracing/tracing-sample-service-b</module>
+    <module>07-tracing/tracing-sample-service-c</module>
+    <module>07-tracing/tracing-admin-server</module>
     <module>dubbo-spring/dubbo-sample-api</module>
     <module>dubbo-spring/dubbo-simple-provider</module>
     <module>dubbo-spring/dubbo-simple-consumer</module>

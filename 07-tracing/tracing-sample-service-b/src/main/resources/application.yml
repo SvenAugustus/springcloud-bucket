@@ -1,0 +1,49 @@
+server:
+  port: 9212
+
+# 订阅消费的服务名
+subscribe-provider.serviceId.serviceC: sample-service-c
+
+spring:
+  application:
+    name: sample-service-b
+
+  # TODO 测试 Redis
+  #  redis:
+  #    host: localhost
+  #    port: 6379
+  #    database: 0
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+
+  sleuth:
+    sampler:
+      # 采样比例1
+      rate: 1
+  zipkin:
+    base-url: http://localhost:9411/
+
+feign:
+  hystrix:
+    # TODO 暂时屏蔽
+    enabled: false
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients:
+      - ${subscribe-provider.serviceId.serviceC}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      ##默认是never
+      show-details: ALWAYS
+      enabled: true

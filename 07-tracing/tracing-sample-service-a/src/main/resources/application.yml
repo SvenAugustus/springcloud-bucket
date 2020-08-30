@@ -1,0 +1,43 @@
+server:
+  port: 9211
+
+# 订阅消费的服务名
+subscribe-provider.serviceId.serviceB: sample-service-b
+
+spring:
+  application:
+    name: sample-service-a
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+
+  sleuth:
+    sampler:
+      # 采样比例1
+      rate: 1
+  zipkin:
+    base-url: http://localhost:9411/
+
+feign:
+  hystrix:
+    # TODO 暂时屏蔽
+    enabled: false
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients:
+      - ${subscribe-provider.serviceId.serviceB}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      ##默认是never
+      show-details: ALWAYS
+      enabled: true
