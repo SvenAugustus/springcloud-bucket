@@ -1,0 +1,29 @@
+server:
+  port: 9302
+
+spring:
+  application:
+    name: sample-seata-service-b
+
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://localhost:3308/seata_rm
+    username: root
+    password: root123
+
+  cloud:
+    alibaba:
+      seata:
+        # Seata 事务组名称，对应file.conf文件中 vgroup_mapping.my_tx_group
+        tx-service-group: my_tx_group
+
+logging:
+  level:
+    xyz:
+      flysium:
+        repository: DEBUG
+
+mybatis:
+  type-aliases-package: xyz.flysium.entity
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
