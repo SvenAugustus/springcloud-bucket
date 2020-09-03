@@ -37,6 +37,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
+import xyz.flysium.service.FeignRestService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -71,7 +72,7 @@ public class DiscoveryServiceConsumerApplication {
         return new RestTemplate();
     }
 
-    @Value("${subscribe-provider.serviceId.serviceA}")
+    @Value("${application.subscribe-provider.serviceId.serviceA}")
     private String providerApplicationName;
 
     /**

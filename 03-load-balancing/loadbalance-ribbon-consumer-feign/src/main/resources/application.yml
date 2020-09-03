@@ -2,7 +2,7 @@ server:
   port: 0
 
 # 订阅消费的服务名
-subscribe-provider.serviceId.serviceA: sample-ribbon-test-provider
+application.subscribe-provider.serviceId.serviceA: sample-ribbon-test-provider
 
 spring:
   application:
@@ -31,7 +31,7 @@ ribbon:
   eager-load:
     enabled: true
     clients:
-      - ${subscribe-provider.serviceId.serviceA}
+      - ${application.subscribe-provider.serviceId.serviceA}
   restclient:
     enabled: false
   http:

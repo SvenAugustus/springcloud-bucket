@@ -29,7 +29,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("xyz.flysium.repository")
+@MapperScan("xyz.flysium.dao.repository")
 public class SeataServiceBApplication {
 
     public static void main(String[] args) {

@@ -62,7 +62,7 @@ public class LoadBalanceRibbonForRestTemplateApplication {
         return new RestTemplate();
     }
 
-    @Value("${subscribe-provider.serviceId.serviceA}")
+    @Value("${application.subscribe-provider.serviceId.serviceA}")
     private String providerApplicationName;
 
     @Bean

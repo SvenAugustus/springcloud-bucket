@@ -59,7 +59,7 @@ service-b:
 service-c: 
 ```sh
 2020-08-30 22:03:25.894 DEBUG [sample-service-c,3aed1908f1877e2d,0b2ba3635c668d2f,true] 23399 --- [nio-9213-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/invokeC?message=e1", parameters={masked}
-2020-08-30 22:03:25.898 DEBUG [sample-service-c,3aed1908f1877e2d,0b2ba3635c668d2f,true] 23399 --- [nio-9213-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to xyz.flysium.ServiceCController#invokeC(HttpServletRequest, String)
+2020-08-30 22:03:25.898 DEBUG [sample-service-c,3aed1908f1877e2d,0b2ba3635c668d2f,true] 23399 --- [nio-9213-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to xyz.flysium.controller.ServiceCController#invokeC(HttpServletRequest, String)
 2020-08-30 22:03:26.029 DEBUG [sample-service-c,3aed1908f1877e2d,0b2ba3635c668d2f,true] 23399 --- [nio-9213-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
 2020-08-30 22:03:26.030 DEBUG [sample-service-c,3aed1908f1877e2d,0b2ba3635c668d2f,true] 23399 --- [nio-9213-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["from 192.168.0.106:9213-> hello"]
 2020-08-30 22:03:26.048 DEBUG [sample-service-c,3aed1908f1877e2d,0b2ba3635c668d2f,true] 23399 --- [nio-9213-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

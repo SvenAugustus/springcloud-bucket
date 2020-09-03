@@ -10,7 +10,7 @@ import xyz.flysium.ServiceBClient.ServiceBClientFallbackFactory;
  * @author zeno (Sven Augustus)
  * @version 1.0
  */
-@FeignClient(value = "${subscribe-provider.serviceId.serviceB}", fallbackFactory = ServiceBClientFallbackFactory.class)
+@FeignClient(value = "${application.subscribe-provider.serviceId.serviceB}", fallbackFactory = ServiceBClientFallbackFactory.class)
 public interface ServiceBClient {
 
     @RequestMapping(value = "/invokeB", method = RequestMethod.GET)

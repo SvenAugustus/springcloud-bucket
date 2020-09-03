@@ -74,7 +74,7 @@ public class CircuitBreakerHystrixForRestTemplateApplication {
     @RestController
     static class TestController {
 
-        @Value("${subscribe-provider.serviceId.serviceA}")
+        @Value("${application.subscribe-provider.serviceId.serviceA}")
         private String providerApplicationName;
 
         @Autowired

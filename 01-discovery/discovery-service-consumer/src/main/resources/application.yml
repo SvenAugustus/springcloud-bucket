@@ -2,7 +2,7 @@ server:
   port: 0
 
 # 订阅消费的服务名
-subscribe-provider.serviceId.serviceA: service-provider
+application.subscribe-provider.serviceId.serviceA: service-provider
 
 spring:
   application:

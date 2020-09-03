@@ -10,7 +10,7 @@ import xyz.flysium.ServiceCClient.ServiceCClientFallbackFactory;
  * @author zeno (Sven Augustus)
  * @version 1.0
  */
-@FeignClient(value = "${subscribe-provider.serviceId.serviceC}", fallbackFactory = ServiceCClientFallbackFactory.class)
+@FeignClient(value = "${application.subscribe-provider.serviceId.serviceC}", fallbackFactory = ServiceCClientFallbackFactory.class)
 public interface ServiceCClient {
 
     @RequestMapping(value = "/invokeC", method = RequestMethod.GET)

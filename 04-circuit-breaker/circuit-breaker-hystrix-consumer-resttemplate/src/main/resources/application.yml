@@ -2,7 +2,7 @@ server:
   port: 2020
 
 # 订阅消费的服务名
-subscribe-provider.serviceId.serviceA: sample-hystrix-test-provider
+application.subscribe-provider.serviceId.serviceA: sample-hystrix-test-provider
 
 spring:
   application:

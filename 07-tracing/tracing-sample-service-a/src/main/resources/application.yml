@@ -2,7 +2,7 @@ server:
   port: 9211
 
 # 订阅消费的服务名
-subscribe-provider.serviceId.serviceB: sample-service-b
+application.subscribe-provider.serviceId.serviceB: sample-service-b
 
 spring:
   application:
@@ -29,7 +29,7 @@ ribbon:
   eager-load:
     enabled: true
     clients:
-      - ${subscribe-provider.serviceId.serviceB}
+      - ${application.subscribe-provider.serviceId.serviceB}
 
 management:
   endpoints:

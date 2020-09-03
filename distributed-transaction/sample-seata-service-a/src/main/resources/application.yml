@@ -2,8 +2,8 @@ server:
   port: 9301
 
 # 订阅消费的服务名
-subscribe-provider.serviceId.serviceB: sample-seata-service-b
-subscribe-provider.serviceId.serviceC: sample-seata-service-c
+application.subscribe-provider.serviceId.serviceB: sample-seata-service-b
+application.subscribe-provider.serviceId.serviceC: sample-seata-service-c
 
 spring:
   application:
@@ -29,8 +29,8 @@ ribbon:
   eager-load:
     enabled: true
     clients:
-      - ${subscribe-provider.serviceId.serviceB}
-      - ${subscribe-provider.serviceId.serviceC}
+      - ${application.subscribe-provider.serviceId.serviceB}
+      - ${application.subscribe-provider.serviceId.serviceC}
 
 logging:
   level:
@@ -39,6 +39,6 @@ logging:
         repository: DEBUG
 
 mybatis:
-  type-aliases-package: xyz.flysium.entity
+  type-aliases-package: xyz.flysium.dao.entity
   mapper-locations: classpath:mybatis/mapper/*.xml
 

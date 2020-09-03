@@ -24,6 +24,6 @@ logging:
         repository: DEBUG
 
 mybatis:
-  type-aliases-package: xyz.flysium.entity
+  type-aliases-package: xyz.flysium.dao.entity
   mapper-locations: classpath:mybatis/mapper/*.xml
 

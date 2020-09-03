@@ -30,7 +30,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("xyz.flysium.repository")
+@MapperScan("xyz.flysium.dao.repository")
 @EnableFeignClients
 public class SeataServiceAApplication {
 

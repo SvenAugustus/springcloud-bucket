@@ -2,7 +2,7 @@ server:
   port: 0
 
 # 订阅消费的服务名
-subscribe-provider.serviceId.serviceA: dubbo-spring-provider-2
+application.subscribe-provider.serviceId.serviceA: dubbo-spring-provider-2
 
 spring:
   application:
@@ -28,7 +28,7 @@ dubbo:
     name: ${spring.application.name}
   cloud:
     # The subscribed services in consumer side
-    subscribed-services: ${subscribe-provider.serviceId.serviceA}
+    subscribed-services: ${application.subscribe-provider.serviceId.serviceA}
   protocols:
     dubbo:
       name: dubbo
