@@ -6,7 +6,7 @@
 ![](.zuul_images/b8a14b6c.png)
 
 ### 端点
-```yml
+```yaml
 management:
   endpoints:
     web:

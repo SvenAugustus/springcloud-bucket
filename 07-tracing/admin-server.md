@@ -33,7 +33,7 @@ pom：
 ```
 
 yml：
-```yml
+```yaml
 management:
   endpoints:
     web:
@@ -68,7 +68,7 @@ root/root
 ```
 
 2, yml
-```yml
+```yaml
    spring: 
      application: 
        name: cloud-admin

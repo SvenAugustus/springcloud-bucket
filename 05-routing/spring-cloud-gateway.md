@@ -34,7 +34,7 @@ spring:
 
 ##### Header Route Predicate Factory
 
-```yml
+```yaml
 spring:
   cloud:
     gateway:
@@ -48,7 +48,7 @@ spring:
 这个路由匹配“请求头包含X-Request-Id并且其值匹配正则表达式\d+”的任意请求
 
 ##### Method Route Predicate Factory
-```yml
+```yaml
 spring:
   cloud:
     gateway:
@@ -62,7 +62,7 @@ spring:
 这个路由匹配任意GET请求
 
 ##### Path Route Predicate Factory
-```yml
+```yaml
 spring:
   cloud:
     gateway:
@@ -78,7 +78,7 @@ spring:
 ##### Query Route Predicate Factory
 
 这个Predicate有两个参数：一个必须的参数名和一个可选的正则表达式
-```yml
+```yaml
 spring:
   cloud:
     gateway:
@@ -90,7 +90,7 @@ spring:
 ```
 
 这个路由匹配“查询参数中包含baz”的请求
-```yml
+```yaml
 spring:
   cloud:
     gateway:
@@ -106,7 +106,7 @@ spring:
 ##### RemoteAddr Route Predicate Factory
 
 这个路由接受一个IP（IPv4或IPv6）地址字符串。例如：192.168.0.1/16，其中192.168.0.1，16是子网掩码
-```yml
+```yaml
 spring:
   cloud:
     gateway:
