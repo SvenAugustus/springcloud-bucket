@@ -19,10 +19,18 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   #      defaultZone: http://root:root123@localhost:8761/eureka/
   server:
-    # 是否开启自我保护模式
+    # 是否开启自我保护模式，看微服务的数量而定
     enable-self-preservation: false
+    # 自我保护阈值
+    renewal-percent-threshold: 0.85
     # 服务注册表清理间隔（单位毫秒，默认是60*1000）
-    eviction-interval-timer-in-ms: 5000
+    # 剔除服务时间间隔    InstanceRegistry#openForTraffic > AbstractInstanceRegistry#postInit, evictionTimer
+    eviction-interval-timer-in-ms: 1000
+    # 关闭从readOnly读注册表  ->ResponseCacheImpl
+    use-read-only-response-cache: false
+    # readWrite 和 readOnly 同步时间间隔。
+    response-cache-update-interval-ms: 1000
+    response-cache-auto-expiration-in-seconds: 10
   instance:
     # 服务名
     virtual-host-name: ${spring.application.name}
