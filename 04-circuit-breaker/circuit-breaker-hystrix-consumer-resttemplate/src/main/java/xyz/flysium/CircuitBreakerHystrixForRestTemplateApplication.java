@@ -25,7 +25,9 @@
 package xyz.flysium;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
+import javax.servlet.Servlet;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,8 +41,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import javax.servlet.Servlet;
 
 /**
  * @author zeno
@@ -80,15 +80,30 @@ public class CircuitBreakerHystrixForRestTemplateApplication {
         @Autowired
         private RestTemplate restTemplate;
 
-        @HystrixCommand(fallbackMethod = "restTemplateError", commandProperties = {
+        @HystrixCommand(groupKey="restTemplate",fallbackMethod = "restTemplateError", commandProperties = {
 //                @HystrixProperty(name = "fallback.enabled", value = "true"),
 //                @HystrixProperty(name = "circuitBreaker.forceOpen", value = "true")
+//                @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE"),
+                @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value = "2")
         })
         @GetMapping("/restTemplate")
         public String restTemplate(String message) {
             return "restTemplate->" + restTemplate
                     .getForObject("http://" + providerApplicationName + "/echo?message=" +
                                   StringUtils.defaultString(message, "s1"), String.class);
+        }
+
+        @HystrixCommand(groupKey="restTemplate2", fallbackMethod = "restTemplateError", commandProperties = {
+//                @HystrixProperty(name = "fallback.enabled", value = "true"),
+//                @HystrixProperty(name = "circuitBreaker.forceOpen", value = "true")
+//                @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE"),
+                @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value = "3")
+        })
+        @GetMapping("/restTemplate2")
+        public String restTemplate2(String message) {
+            return "restTemplate2->" + restTemplate
+                    .getForObject("http://" + providerApplicationName + "/echo?message=" +
+                                  StringUtils.defaultString(message, "s2"), String.class);
         }
 
         protected String restTemplateError(String message) {
