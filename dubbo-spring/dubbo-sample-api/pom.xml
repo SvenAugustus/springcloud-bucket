@@ -6,7 +6,7 @@
     <groupId>xyz.flysium.springcloud</groupId>
     <artifactId>springcloud-bucket-pom</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../../pom.xmlpom.xml</relativePath>
+    <relativePath>../../pom.xml</relativePath>
   </parent>
 
   <artifactId>dubbo-sample-api</artifactId>
@@ -36,14 +36,5 @@
     </dependency>
 
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>
