@@ -18,7 +18,6 @@ dubbo:
     # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
     port: 28801
   registry:
-    # 挂载到 Spring Cloud 注册中心
     address: spring-cloud://localhost
   consumer:
     check: false

@@ -31,7 +31,7 @@ dubbo:
     name: ${spring.application.name}
   scan:
     # dubbo 服务扫描基准包
-    base-packages: xyz.flysium.cloud.service
+    base-packages: xyz.flysium
   cloud:
     subscribed-services: ${application.subscribe-provider.serviceId.serviceA}
   protocols:

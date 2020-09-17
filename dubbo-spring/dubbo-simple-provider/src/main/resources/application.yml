@@ -12,7 +12,7 @@ spring:
 dubbo:
   scan:
     # dubbo 服务扫描基准包
-    base-packages: xyz.flysium.cloud.service
+    base-packages: xyz.flysium
   cloud:
     subscribed-services:
   protocol:
@@ -21,7 +21,6 @@ dubbo:
     # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
     port: 28800
   registry:
-    # 挂载到 Spring Cloud 注册中心
     address: spring-cloud://localhost
   metadata-report:
     address:
