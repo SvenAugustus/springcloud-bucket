@@ -23,8 +23,8 @@
   ~ SOFTWARE.
   -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>xyz.flysium.springcloud</groupId>
   <artifactId>springcloud-bucket-pom</artifactId>
@@ -66,25 +66,27 @@
 
   <properties>
     <java.version>1.8</java.version>
+    <!--               Spring Technologies            -->
     <!-- Spring Boot -->
-    <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+    <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
     <!-- Spring Cloud -->
-    <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
+    <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
     <!-- Spring Cloud Alibaba -->
     <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
     <spring-cloud-alibaba-seata.version>2.2.0.RELEASE</spring-cloud-alibaba-seata.version>
     <!-- Spring Cloud Netflix -->
-    <spring-cloud-netflix.version>2.2.4.RELEASE</spring-cloud-netflix.version>
+    <spring-cloud-netflix.version>2.2.5.RELEASE</spring-cloud-netflix.version>
     <!-- Spring Cloud Zookeeper -->
     <spring-cloud-zookeeper.version>2.2.3.RELEASE</spring-cloud-zookeeper.version>
     <!-- Spring Cloud Consul -->
     <spring-cloud-consul.version>2.2.4.RELEASE</spring-cloud-consul.version>
     <!-- REST Support -->
     <resteasy.version>3.0.19.Final</resteasy.version>
+    <!--               Spring Extend Technologies            -->
     <!-- admin-server -->
     <de.codecentric-spring-cloud-admin-server.version>2.3.0
     </de.codecentric-spring-cloud-admin-server.version>
-    <!-- mybatis -->
+    <!--               Database Technologies            -->
     <mybatis-spring-boot-starter.version>2.1.3</mybatis-spring-boot-starter.version>
   </properties>
 
